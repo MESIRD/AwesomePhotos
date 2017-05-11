@@ -1,0 +1,394 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8AC3A500BE50470D0A87361E /* Pods_AwesomePhotos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13EDCD5B2EBDCA295D1E0BE0 /* Pods_AwesomePhotos.framework */; };
+		D708E5771EC4E1A900BE2542 /* PhotoFeedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D708E5761EC4E1A900BE2542 /* PhotoFeedsViewController.swift */; };
+		D79F92071EC3705C000DD79F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79F92061EC3705C000DD79F /* AppDelegate.swift */; };
+		D79F92091EC3705C000DD79F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79F92081EC3705C000DD79F /* ViewController.swift */; };
+		D79F920C1EC3705C000DD79F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D79F920A1EC3705C000DD79F /* Main.storyboard */; };
+		D79F920E1EC3705C000DD79F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D79F920D1EC3705C000DD79F /* Assets.xcassets */; };
+		D79F92111EC3705C000DD79F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D79F920F1EC3705C000DD79F /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		13EDCD5B2EBDCA295D1E0BE0 /* Pods_AwesomePhotos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AwesomePhotos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2595ABB186B55A8DAE5F6DEC /* Pods-AwesomePhotos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AwesomePhotos.release.xcconfig"; path = "Pods/Target Support Files/Pods-AwesomePhotos/Pods-AwesomePhotos.release.xcconfig"; sourceTree = "<group>"; };
+		4CEF282F7B64D27DF59637BC /* Pods-AwesomePhotos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AwesomePhotos.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AwesomePhotos/Pods-AwesomePhotos.debug.xcconfig"; sourceTree = "<group>"; };
+		D708E5761EC4E1A900BE2542 /* PhotoFeedsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoFeedsViewController.swift; sourceTree = "<group>"; };
+		D79F92031EC3705C000DD79F /* AwesomePhotos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AwesomePhotos.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D79F92061EC3705C000DD79F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D79F92081EC3705C000DD79F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D79F920B1EC3705C000DD79F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D79F920D1EC3705C000DD79F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D79F92101EC3705C000DD79F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D79F92121EC3705C000DD79F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D79F92001EC3705B000DD79F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8AC3A500BE50470D0A87361E /* Pods_AwesomePhotos.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		69379DAA2FFDF5919756129E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				13EDCD5B2EBDCA295D1E0BE0 /* Pods_AwesomePhotos.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D79F91FA1EC3705B000DD79F = {
+			isa = PBXGroup;
+			children = (
+				D79F92051EC3705C000DD79F /* AwesomePhotos */,
+				D79F92041EC3705C000DD79F /* Products */,
+				FB6D5EB3E6A9900B2027A751 /* Pods */,
+				69379DAA2FFDF5919756129E /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		D79F92041EC3705C000DD79F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D79F92031EC3705C000DD79F /* AwesomePhotos.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D79F92051EC3705C000DD79F /* AwesomePhotos */ = {
+			isa = PBXGroup;
+			children = (
+				D79F92061EC3705C000DD79F /* AppDelegate.swift */,
+				D79F92081EC3705C000DD79F /* ViewController.swift */,
+				D708E5761EC4E1A900BE2542 /* PhotoFeedsViewController.swift */,
+				D79F920A1EC3705C000DD79F /* Main.storyboard */,
+				D79F920D1EC3705C000DD79F /* Assets.xcassets */,
+				D79F920F1EC3705C000DD79F /* LaunchScreen.storyboard */,
+				D79F92121EC3705C000DD79F /* Info.plist */,
+			);
+			path = AwesomePhotos;
+			sourceTree = "<group>";
+		};
+		FB6D5EB3E6A9900B2027A751 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4CEF282F7B64D27DF59637BC /* Pods-AwesomePhotos.debug.xcconfig */,
+				2595ABB186B55A8DAE5F6DEC /* Pods-AwesomePhotos.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D79F92021EC3705B000DD79F /* AwesomePhotos */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D79F92151EC3705C000DD79F /* Build configuration list for PBXNativeTarget "AwesomePhotos" */;
+			buildPhases = (
+				A52E89559025C4739882F69A /* 📦 Check Pods Manifest.lock */,
+				D79F91FF1EC3705B000DD79F /* Sources */,
+				D79F92001EC3705B000DD79F /* Frameworks */,
+				D79F92011EC3705B000DD79F /* Resources */,
+				12B5ADF0B2F47985C2C92B36 /* 📦 Embed Pods Frameworks */,
+				8C0FBCE3225E972B40AB016F /* 📦 Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AwesomePhotos;
+			productName = AwesomePhotos;
+			productReference = D79F92031EC3705C000DD79F /* AwesomePhotos.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D79F91FB1EC3705B000DD79F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = mesird;
+				TargetAttributes = {
+					D79F92021EC3705B000DD79F = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = CYRHEAA262;
+						LastSwiftMigration = 0830;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = D79F91FE1EC3705B000DD79F /* Build configuration list for PBXProject "AwesomePhotos" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D79F91FA1EC3705B000DD79F;
+			productRefGroup = D79F92041EC3705C000DD79F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D79F92021EC3705B000DD79F /* AwesomePhotos */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D79F92011EC3705B000DD79F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D79F92111EC3705C000DD79F /* LaunchScreen.storyboard in Resources */,
+				D79F920E1EC3705C000DD79F /* Assets.xcassets in Resources */,
+				D79F920C1EC3705C000DD79F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		12B5ADF0B2F47985C2C92B36 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AwesomePhotos/Pods-AwesomePhotos-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8C0FBCE3225E972B40AB016F /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AwesomePhotos/Pods-AwesomePhotos-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A52E89559025C4739882F69A /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D79F91FF1EC3705B000DD79F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D708E5771EC4E1A900BE2542 /* PhotoFeedsViewController.swift in Sources */,
+				D79F92091EC3705C000DD79F /* ViewController.swift in Sources */,
+				D79F92071EC3705C000DD79F /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D79F920A1EC3705C000DD79F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D79F920B1EC3705C000DD79F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D79F920F1EC3705C000DD79F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D79F92101EC3705C000DD79F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D79F92131EC3705C000DD79F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D79F92141EC3705C000DD79F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D79F92161EC3705C000DD79F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4CEF282F7B64D27DF59637BC /* Pods-AwesomePhotos.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = CYRHEAA262;
+				INFOPLIST_FILE = AwesomePhotos/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mesird.AwesomePhotos;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		D79F92171EC3705C000DD79F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2595ABB186B55A8DAE5F6DEC /* Pods-AwesomePhotos.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = CYRHEAA262;
+				INFOPLIST_FILE = AwesomePhotos/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mesird.AwesomePhotos;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D79F91FE1EC3705B000DD79F /* Build configuration list for PBXProject "AwesomePhotos" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D79F92131EC3705C000DD79F /* Debug */,
+				D79F92141EC3705C000DD79F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D79F92151EC3705C000DD79F /* Build configuration list for PBXNativeTarget "AwesomePhotos" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D79F92161EC3705C000DD79F /* Debug */,
+				D79F92171EC3705C000DD79F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D79F91FB1EC3705B000DD79F /* Project object */;
+}
