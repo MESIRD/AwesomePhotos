@@ -8,5 +8,7 @@ target 'AwesomePhotos' do
   # Pods for AwesomePhotos
 
   pod 'Alamofire', '~> 4.4'
+  
+  pod 'MJExtension'
 
 end

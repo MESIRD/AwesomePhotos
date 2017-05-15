@@ -9,8 +9,15 @@
 /* Begin PBXBuildFile section */
 		8AC3A500BE50470D0A87361E /* Pods_AwesomePhotos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13EDCD5B2EBDCA295D1E0BE0 /* Pods_AwesomePhotos.framework */; };
 		D708E5771EC4E1A900BE2542 /* PhotoFeedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D708E5761EC4E1A900BE2542 /* PhotoFeedsViewController.swift */; };
+		D79271C91EC806AB00FF2BAD /* PrefixHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79271C81EC806AB00FF2BAD /* PrefixHeader.swift */; };
+		D79DC0011ECA18440025763E /* APPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79DC0001ECA18440025763E /* APPhoto.swift */; };
+		D79DC0031ECA192C0025763E /* APFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79DC0021ECA192C0025763E /* APFeed.swift */; };
+		D79DC0051ECA195A0025763E /* APUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79DC0041ECA195A0025763E /* APUser.swift */; };
+		D79DC0071ECA19720025763E /* APLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79DC0061ECA19720025763E /* APLink.swift */; };
+		D79DC0091ECA1A1F0025763E /* APUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79DC0081ECA1A1F0025763E /* APUrl.swift */; };
+		D79DC00B1ECA1A640025763E /* APCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79DC00A1ECA1A640025763E /* APCategory.swift */; };
+		D79DC00D1ECA1B300025763E /* APImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79DC00C1ECA1B300025763E /* APImage.swift */; };
 		D79F92071EC3705C000DD79F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79F92061EC3705C000DD79F /* AppDelegate.swift */; };
-		D79F92091EC3705C000DD79F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79F92081EC3705C000DD79F /* ViewController.swift */; };
 		D79F920C1EC3705C000DD79F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D79F920A1EC3705C000DD79F /* Main.storyboard */; };
 		D79F920E1EC3705C000DD79F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D79F920D1EC3705C000DD79F /* Assets.xcassets */; };
 		D79F92111EC3705C000DD79F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D79F920F1EC3705C000DD79F /* LaunchScreen.storyboard */; };
@@ -21,9 +28,16 @@
 		2595ABB186B55A8DAE5F6DEC /* Pods-AwesomePhotos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AwesomePhotos.release.xcconfig"; path = "Pods/Target Support Files/Pods-AwesomePhotos/Pods-AwesomePhotos.release.xcconfig"; sourceTree = "<group>"; };
 		4CEF282F7B64D27DF59637BC /* Pods-AwesomePhotos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AwesomePhotos.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AwesomePhotos/Pods-AwesomePhotos.debug.xcconfig"; sourceTree = "<group>"; };
 		D708E5761EC4E1A900BE2542 /* PhotoFeedsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoFeedsViewController.swift; sourceTree = "<group>"; };
+		D79271C81EC806AB00FF2BAD /* PrefixHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrefixHeader.swift; sourceTree = "<group>"; };
+		D79DC0001ECA18440025763E /* APPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APPhoto.swift; sourceTree = "<group>"; };
+		D79DC0021ECA192C0025763E /* APFeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APFeed.swift; sourceTree = "<group>"; };
+		D79DC0041ECA195A0025763E /* APUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APUser.swift; sourceTree = "<group>"; };
+		D79DC0061ECA19720025763E /* APLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APLink.swift; sourceTree = "<group>"; };
+		D79DC0081ECA1A1F0025763E /* APUrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APUrl.swift; sourceTree = "<group>"; };
+		D79DC00A1ECA1A640025763E /* APCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APCategory.swift; sourceTree = "<group>"; };
+		D79DC00C1ECA1B300025763E /* APImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APImage.swift; sourceTree = "<group>"; };
 		D79F92031EC3705C000DD79F /* AwesomePhotos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AwesomePhotos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D79F92061EC3705C000DD79F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D79F92081EC3705C000DD79F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D79F920B1EC3705C000DD79F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D79F920D1EC3705C000DD79F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D79F92101EC3705C000DD79F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -50,6 +64,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D79DBFFF1ECA182B0025763E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D79DC0021ECA192C0025763E /* APFeed.swift */,
+				D79DC0001ECA18440025763E /* APPhoto.swift */,
+				D79DC0041ECA195A0025763E /* APUser.swift */,
+				D79DC0061ECA19720025763E /* APLink.swift */,
+				D79DC0081ECA1A1F0025763E /* APUrl.swift */,
+				D79DC00A1ECA1A640025763E /* APCategory.swift */,
+				D79DC00C1ECA1B300025763E /* APImage.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		D79F91FA1EC3705B000DD79F = {
 			isa = PBXGroup;
 			children = (
@@ -71,13 +99,14 @@
 		D79F92051EC3705C000DD79F /* AwesomePhotos */ = {
 			isa = PBXGroup;
 			children = (
+				D79DBFFF1ECA182B0025763E /* Model */,
 				D79F92061EC3705C000DD79F /* AppDelegate.swift */,
-				D79F92081EC3705C000DD79F /* ViewController.swift */,
 				D708E5761EC4E1A900BE2542 /* PhotoFeedsViewController.swift */,
 				D79F920A1EC3705C000DD79F /* Main.storyboard */,
 				D79F920D1EC3705C000DD79F /* Assets.xcassets */,
 				D79F920F1EC3705C000DD79F /* LaunchScreen.storyboard */,
 				D79F92121EC3705C000DD79F /* Info.plist */,
+				D79271C81EC806AB00FF2BAD /* PrefixHeader.swift */,
 			);
 			path = AwesomePhotos;
 			sourceTree = "<group>";
@@ -216,8 +245,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D79DC00B1ECA1A640025763E /* APCategory.swift in Sources */,
+				D79DC0051ECA195A0025763E /* APUser.swift in Sources */,
+				D79271C91EC806AB00FF2BAD /* PrefixHeader.swift in Sources */,
+				D79DC0011ECA18440025763E /* APPhoto.swift in Sources */,
+				D79DC0031ECA192C0025763E /* APFeed.swift in Sources */,
 				D708E5771EC4E1A900BE2542 /* PhotoFeedsViewController.swift in Sources */,
-				D79F92091EC3705C000DD79F /* ViewController.swift in Sources */,
+				D79DC00D1ECA1B300025763E /* APImage.swift in Sources */,
+				D79DC0091ECA1A1F0025763E /* APUrl.swift in Sources */,
+				D79DC0071ECA19720025763E /* APLink.swift in Sources */,
 				D79F92071EC3705C000DD79F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -343,6 +379,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = CYRHEAA262;
+				GCC_PREFIX_HEADER = AwesomePhotos/PrefixHeader.swift;
 				INFOPLIST_FILE = AwesomePhotos/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -358,6 +395,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = CYRHEAA262;
+				GCC_PREFIX_HEADER = AwesomePhotos/PrefixHeader.swift;
 				INFOPLIST_FILE = AwesomePhotos/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
