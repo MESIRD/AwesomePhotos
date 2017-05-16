@@ -11,7 +11,7 @@ import Alamofire
 
 import MJExtension
 
-class PhotoFeedsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class PhotoFeedsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIScrollViewDelegate {
     
     var backBlurPhotoView: UIImageView?
     var backMaskView: UIView?
@@ -22,6 +22,8 @@ class PhotoFeedsViewController: UIViewController, UICollectionViewDataSource, UI
     var shareButton: UIButton?
     
     var feeds: Array<APFeed>?
+    
+    let kReuseIdFeedsCell = "FeedsCell"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +36,7 @@ class PhotoFeedsViewController: UIViewController, UICollectionViewDataSource, UI
     }
     
     func initData() {
-        
+        feeds = []
     }
     
     func initUI() {
@@ -56,6 +58,7 @@ class PhotoFeedsViewController: UIViewController, UICollectionViewDataSource, UI
         photoCollectionView = UICollectionView(frame: UIScreen.main.bounds, collectionViewLayout: collectionLayout)
         photoCollectionView!.delegate = self
         photoCollectionView!.dataSource = self
+        photoCollectionView!.register(APFeedsCollectionViewCell.self, forCellWithReuseIdentifier: kReuseIdFeedsCell)
         self.view.addSubview(photoCollectionView!)
         
         downloadButton = UIButton(frame: CGRect(x: (ScreenWidth - 40) / 2, y: ScreenHeight - 50 - 40, width: 40, height: 40))
@@ -111,14 +114,32 @@ class PhotoFeedsViewController: UIViewController, UICollectionViewDataSource, UI
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell: APFeedsCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: kReuseIdFeedsCell, for: indexPath) as! APFeedsCollectionViewCell
         
+        cell.photoView!.image = UIImage(named: "demo")
+        
+        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return feeds!.count
     }
     
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offset = scrollView.contentOffset
+        let index: Int = Int(offset.x / ScreenWidth)
+        let feed = feeds![index]
+        DispatchQueue.global().async {
+            try!
+            let imageData: NSData = NSData(contentsOf: NSURL(string: (feed.cover_photo?.urls?.regular)!)! as URL)
+            let image = UIImage.init(data: imageData as Data)
+        }
+        backBlurPhotoView!.image =
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
