@@ -10,5 +10,7 @@ target 'AwesomePhotos' do
   pod 'Alamofire', '~> 4.4'
   
   pod 'MJExtension'
+  
+  pod 'SDWebImage', '~>3.8'
 
 end

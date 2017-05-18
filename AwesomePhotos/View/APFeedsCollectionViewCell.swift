@@ -16,16 +16,22 @@ class APFeedsCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        let length = ScreenWidth - 100
+        let margin: CGFloat = 30
+        let length = ScreenWidth - (margin * 2)
         
-        shadowView = UIImageView(frame: CGRect(x: 50, y: (ScreenHeight + length) / 2 - 25, width: length, height: 50))
+        shadowView = UIImageView(frame: CGRect(x: margin, y: (ScreenHeight + length) / 2 - 25, width: length, height: 50))
         shadowView!.image = UIImage(named: "photo_shadow")
         self.addSubview(shadowView!)
         
-        photoView = UIImageView(frame: CGRect(x: 50, y: (ScreenHeight - length) / 2, width: length, height: length))
+        photoView = UIImageView(frame: CGRect(x: margin, y: (ScreenHeight - length) / 2, width: length, height: length))
         photoView!.layer.cornerRadius = 5
         photoView!.layer.masksToBounds = true
+        photoView!.contentMode = .scaleAspectFill
         self.addSubview(photoView!)
+    }
+    
+    func setPhoto(with URL:URL) {
+        photoView!.sd_setImage(with: URL)
     }
     
     required init?(coder aDecoder: NSCoder) {

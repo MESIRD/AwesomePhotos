@@ -7,13 +7,16 @@
 //
 
 import UIKit
-import Alamofire
 
+import Alamofire
 import MJExtension
+import SDWebImage
 
 class PhotoFeedsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIScrollViewDelegate {
     
-    var backBlurPhotoView: UIImageView?
+    var backBlurPhotoViews: Array<UIImageView> = []
+    var currentBackPhotoIndex: Int = 0
+    
     var backMaskView: UIView?
     var photographerLabel: UILabel?
     var photoCollectionView: UICollectionView?
@@ -21,7 +24,7 @@ class PhotoFeedsViewController: UIViewController, UICollectionViewDataSource, UI
     var downloadButton: UIButton?
     var shareButton: UIButton?
     
-    var feeds: Array<APFeed>?
+    var feedPhotos: Array<APPhoto> = []
     
     let kReuseIdFeedsCell = "FeedsCell"
 
@@ -36,56 +39,71 @@ class PhotoFeedsViewController: UIViewController, UICollectionViewDataSource, UI
     }
     
     func initData() {
-        feeds = []
+        
     }
     
     func initUI() {
-        backBlurPhotoView = UIImageView(frame: UIScreen.main.bounds)
-        self.view.addSubview(backBlurPhotoView!)
+        let backBlurPhotoViewA = UIImageView(frame: UIScreen.main.bounds)
+        backBlurPhotoViewA.contentMode = .scaleAspectFill
+        view.addSubview(backBlurPhotoViewA)
+        backBlurPhotoViews.append(backBlurPhotoViewA)
+        
+        let backBlurPhotoViewB = UIImageView(frame: UIScreen.main.bounds)
+        backBlurPhotoViewB.contentMode = .scaleAspectFill
+        backBlurPhotoViewB.alpha = 0
+        view.addSubview(backBlurPhotoViewB)
+        backBlurPhotoViews.append(backBlurPhotoViewB)
         
         backMaskView = UIView(frame: UIScreen.main.bounds)
         backMaskView!.backgroundColor = UIColor.init(white: 0, alpha: 0.5)
-        self.view.addSubview(backMaskView!)
+        view.addSubview(backMaskView!)
         
         photographerLabel = UILabel(frame: CGRect(x: 15, y: 15 + 22, width: ScreenWidth - 30, height: 20))
-        photographerLabel!.textColor = UIColor.white
-        self.view.addSubview(photographerLabel!)
+        photographerLabel!.textAlignment = .right
+        view.addSubview(photographerLabel!)
         
         let collectionLayout = UICollectionViewFlowLayout()
         collectionLayout.scrollDirection = .horizontal
         collectionLayout.itemSize = CGSize(width: ScreenWidth, height: ScreenHeight)
+        collectionLayout.minimumLineSpacing = 0
         
         photoCollectionView = UICollectionView(frame: UIScreen.main.bounds, collectionViewLayout: collectionLayout)
         photoCollectionView!.delegate = self
         photoCollectionView!.dataSource = self
         photoCollectionView!.register(APFeedsCollectionViewCell.self, forCellWithReuseIdentifier: kReuseIdFeedsCell)
-        self.view.addSubview(photoCollectionView!)
+        photoCollectionView!.isPagingEnabled = true
+        photoCollectionView!.backgroundColor = UIColor.clear
+        view.addSubview(photoCollectionView!)
         
         downloadButton = UIButton(frame: CGRect(x: (ScreenWidth - 40) / 2, y: ScreenHeight - 50 - 40, width: 40, height: 40))
         downloadButton!.setImage(UIImage.init(named: "download_button"), for: .normal)
         downloadButton!.addTarget(self, action: #selector(self.downloadPhoto), for: .touchUpInside)
-        self.view.addSubview(downloadButton!)
+        view.addSubview(downloadButton!)
         
         editButton = UIButton(frame: CGRect(x: downloadButton!.frame.minX - 50 - 40, y: ScreenHeight - 50 - 40, width: 40, height: 40))
         editButton!.setImage(UIImage.init(named: "edit_button"), for: .normal)
         editButton!.addTarget(self, action: #selector(self.editPhoto), for: .touchUpInside)
-        self.view.addSubview(editButton!)
+        view.addSubview(editButton!)
         
         shareButton = UIButton(frame: CGRect(x: downloadButton!.frame.maxX + 50, y: ScreenHeight - 50 - 40, width: 40, height: 40))
         shareButton!.setImage(UIImage.init(named: "share_button"), for: .normal)
         shareButton!.addTarget(self, action: #selector(self.sharePhoto), for: .touchUpInside)
-        self.view.addSubview(shareButton!)
+        view.addSubview(shareButton!)
     }
     
     func refreshData() {
         let parameters: Parameters = ["client_id": "fb960eecf28eaa7e534b592cd49238327e5d976a7b5218c021605dcb4475b759"]
         Alamofire.request("https://api.unsplash.com/photos/", method: .get, parameters: parameters).responseJSON { (response) in
             if response.result.isSuccess {
-                let feeds: Array<APFeed> = APFeed.mj_objectArray(withKeyValuesArray: response.result.value!) as! Array<APFeed>
-                self.feeds = feeds
+                let photos: Array<APPhoto> = APPhoto.mj_objectArray(withKeyValuesArray: response.result.value!) as! Array<APPhoto>
+                self.feedPhotos = photos
+                if self.feedPhotos.count > 0 {
+                    self.backBlurPhotoView!.sd_setImage(with: URL(string: (self.feedPhotos.first?.urls?.regular)!))
+                    self.photographerLabel!.attributedText = self.convert(name: (self.feedPhotos.first?.user?.name)!)
+                }
                 self.photoCollectionView?.reloadData()
             } else {
-                print("Refresh data failed.")
+                print("refresh data failed.")
             }
         }
     }
@@ -115,30 +133,41 @@ class PhotoFeedsViewController: UIViewController, UICollectionViewDataSource, UI
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: APFeedsCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: kReuseIdFeedsCell, for: indexPath) as! APFeedsCollectionViewCell
-        
-        cell.photoView!.image = UIImage(named: "demo")
-        
+        cell.setPhoto(with:URL(string: (feedPhotos[indexPath.item].urls?.regular)!)!)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return feeds!.count
+        return feedPhotos.count
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let offset = scrollView.contentOffset
         let index: Int = Int(offset.x / ScreenWidth)
-        let feed = feeds![index]
-        DispatchQueue.global().async {
-            try!
-            let imageData: NSData = NSData(contentsOf: NSURL(string: (feed.cover_photo?.urls?.regular)!)! as URL)
-            let image = UIImage.init(data: imageData as Data)
+        let photo = feedPhotos[index]
+        DispatchQueue.main.async {
+            self.setBackBlurPhoto(with: (URL(string: (photo.urls?.regular)!))!)
+            self.photographerLabel!.attributedText = self.convert(name: (photo.user?.name)!)
         }
-        backBlurPhotoView!.image =
+    }
+    
+    func setBackBlurPhoto(with url: URL) {
+        backBlurPhotoViews[1 - currentBackPhotoIndex].sd_setImage(with: url)
+        UIView.animate(withDuration: 0.3, animations: {
+            self.backBlurPhotoViews[self.currentBackPhotoIndex].alpha = 0
+            self.backBlurPhotoViews[1 - self.currentBackPhotoIndex].alpha = 1
+        })
+        currentBackPhotoIndex = 1 - currentBackPhotoIndex
+    }
+    
+    func convert(name: String) -> NSAttributedString {
+        let attributedText = NSMutableAttributedString(string: String.init(format: "powered by %@", name), attributes: [NSForegroundColorAttributeName:UIColor.white, NSFontAttributeName:UIFont.systemFont(ofSize: 14, weight: UIFontWeightLight)])
+        attributedText.addAttribute(NSFontAttributeName, value: UIFont.boldSystemFont(ofSize: 14), range: NSMakeRange(11, name.characters.count))
+        return attributedText
     }
     
     override func didReceiveMemoryWarning() {
