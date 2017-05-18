@@ -11,10 +11,11 @@ import UIKit
 import Alamofire
 import MJExtension
 import SDWebImage
+import SABlurImageView
 
 class PhotoFeedsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIScrollViewDelegate {
     
-    var backBlurPhotoViews: Array<UIImageView> = []
+    var backBlurPhotoViews: Array<SABlurImageView> = []
     var currentBackPhotoIndex: Int = 0
     
     var backMaskView: UIView?
@@ -25,6 +26,7 @@ class PhotoFeedsViewController: UIViewController, UICollectionViewDataSource, UI
     var shareButton: UIButton?
     
     var feedPhotos: Array<APPhoto> = []
+    var currentPhotoIndex: Int = 0
     
     let kReuseIdFeedsCell = "FeedsCell"
 
@@ -43,12 +45,12 @@ class PhotoFeedsViewController: UIViewController, UICollectionViewDataSource, UI
     }
     
     func initUI() {
-        let backBlurPhotoViewA = UIImageView(frame: UIScreen.main.bounds)
+        let backBlurPhotoViewA = SABlurImageView(frame: UIScreen.main.bounds)
         backBlurPhotoViewA.contentMode = .scaleAspectFill
         view.addSubview(backBlurPhotoViewA)
         backBlurPhotoViews.append(backBlurPhotoViewA)
         
-        let backBlurPhotoViewB = UIImageView(frame: UIScreen.main.bounds)
+        let backBlurPhotoViewB = SABlurImageView(frame: UIScreen.main.bounds)
         backBlurPhotoViewB.contentMode = .scaleAspectFill
         backBlurPhotoViewB.alpha = 0
         view.addSubview(backBlurPhotoViewB)
@@ -58,7 +60,7 @@ class PhotoFeedsViewController: UIViewController, UICollectionViewDataSource, UI
         backMaskView!.backgroundColor = UIColor.init(white: 0, alpha: 0.5)
         view.addSubview(backMaskView!)
         
-        photographerLabel = UILabel(frame: CGRect(x: 15, y: 15 + 22, width: ScreenWidth - 30, height: 20))
+        photographerLabel = UILabel(frame: CGRect(x: 15, y: 15, width: ScreenWidth - 30, height: 20))
         photographerLabel!.textAlignment = .right
         view.addSubview(photographerLabel!)
         
@@ -98,7 +100,7 @@ class PhotoFeedsViewController: UIViewController, UICollectionViewDataSource, UI
                 let photos: Array<APPhoto> = APPhoto.mj_objectArray(withKeyValuesArray: response.result.value!) as! Array<APPhoto>
                 self.feedPhotos = photos
                 if self.feedPhotos.count > 0 {
-                    self.backBlurPhotoView!.sd_setImage(with: URL(string: (self.feedPhotos.first?.urls?.regular)!))
+                    self.setBackBlurPhoto(with: URL(string: (self.feedPhotos.first?.urls?.regular)!)!)
                     self.photographerLabel!.attributedText = self.convert(name: (self.feedPhotos.first?.user?.name)!)
                 }
                 self.photoCollectionView?.reloadData()
@@ -148,15 +150,19 @@ class PhotoFeedsViewController: UIViewController, UICollectionViewDataSource, UI
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let offset = scrollView.contentOffset
         let index: Int = Int(offset.x / ScreenWidth)
-        let photo = feedPhotos[index]
-        DispatchQueue.main.async {
-            self.setBackBlurPhoto(with: (URL(string: (photo.urls?.regular)!))!)
-            self.photographerLabel!.attributedText = self.convert(name: (photo.user?.name)!)
+        if index != currentPhotoIndex {
+            currentPhotoIndex = index
+            let photo = feedPhotos[currentPhotoIndex]
+            DispatchQueue.main.async {
+                self.setBackBlurPhoto(with: (URL(string: (photo.urls?.regular)!))!)
+                self.photographerLabel!.attributedText = self.convert(name: (photo.user?.name)!)
+            }
         }
     }
     
     func setBackBlurPhoto(with url: URL) {
         backBlurPhotoViews[1 - currentBackPhotoIndex].sd_setImage(with: url)
+        backBlurPhotoViews[1 - currentBackPhotoIndex].addBlurEffect(50)
         UIView.animate(withDuration: 0.3, animations: {
             self.backBlurPhotoViews[self.currentBackPhotoIndex].alpha = 0
             self.backBlurPhotoViews[1 - self.currentBackPhotoIndex].alpha = 1

@@ -12,5 +12,7 @@ target 'AwesomePhotos' do
   pod 'MJExtension'
   
   pod 'SDWebImage', '~>3.8'
+  
+  pod 'SABlurImageView'
 
 end
