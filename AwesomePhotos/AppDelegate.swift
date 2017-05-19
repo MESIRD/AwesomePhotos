@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,9 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         let rootViewController = PhotoFeedsViewController()
-        
         window = UIWindow.init(frame: UIScreen.main.bounds)
         window?.rootViewController = rootViewController
+        
+        SDImageCache.shared().clearMemory()
+        SDImageCache.shared().clearDisk()
         
         return true
     }

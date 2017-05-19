@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import SDWebImage
 
 class APFeedsCollectionViewCell: UICollectionViewCell {
     
     var photoView: UIImageView?
     var shadowView: UIImageView?
+    var indicatorView: UIActivityIndicatorView?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -21,17 +23,23 @@ class APFeedsCollectionViewCell: UICollectionViewCell {
         
         shadowView = UIImageView(frame: CGRect(x: margin, y: (ScreenHeight + length) / 2 - 25, width: length, height: 50))
         shadowView!.image = UIImage(named: "photo_shadow")
-        self.addSubview(shadowView!)
+        contentView.addSubview(shadowView!)
+        
+        indicatorView = UIActivityIndicatorView(frame: CGRect(x: (ScreenWidth - 50) / 2, y: (ScreenHeight - 50) / 2, width: 50, height: 50))
+        indicatorView!.activityIndicatorViewStyle = .white
+        indicatorView!.hidesWhenStopped = false
+        indicatorView!.startAnimating()
+        contentView.addSubview(indicatorView!)
         
         photoView = UIImageView(frame: CGRect(x: margin, y: (ScreenHeight - length) / 2, width: length, height: length))
         photoView!.layer.cornerRadius = 5
         photoView!.layer.masksToBounds = true
         photoView!.contentMode = .scaleAspectFill
-        self.addSubview(photoView!)
+        contentView.addSubview(photoView!)
     }
     
-    func setPhoto(with URL:URL) {
-        photoView!.sd_setImage(with: URL)
+    func setPhoto(with url:URL) {
+        photoView!.sd_setImage(with: url)
     }
     
     required init?(coder aDecoder: NSCoder) {

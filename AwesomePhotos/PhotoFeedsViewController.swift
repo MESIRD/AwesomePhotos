@@ -100,7 +100,7 @@ class PhotoFeedsViewController: UIViewController, UICollectionViewDataSource, UI
                 let photos: Array<APPhoto> = APPhoto.mj_objectArray(withKeyValuesArray: response.result.value!) as! Array<APPhoto>
                 self.feedPhotos = photos
                 if self.feedPhotos.count > 0 {
-                    self.setBackBlurPhoto(with: URL(string: (self.feedPhotos.first?.urls?.regular)!)!)
+                    self.setBackBlurPhoto(with: URL(string: (self.feedPhotos.first?.urls?.small)!)!)
                     self.photographerLabel!.attributedText = self.convert(name: (self.feedPhotos.first?.user?.name)!)
                 }
                 self.photoCollectionView?.reloadData()
@@ -135,7 +135,7 @@ class PhotoFeedsViewController: UIViewController, UICollectionViewDataSource, UI
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: APFeedsCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: kReuseIdFeedsCell, for: indexPath) as! APFeedsCollectionViewCell
-        cell.setPhoto(with:URL(string: (feedPhotos[indexPath.item].urls?.regular)!)!)
+        cell.setPhoto(with:URL(string: (feedPhotos[indexPath.item].urls?.small)!)!)
         return cell
     }
     
@@ -154,7 +154,7 @@ class PhotoFeedsViewController: UIViewController, UICollectionViewDataSource, UI
             currentPhotoIndex = index
             let photo = feedPhotos[currentPhotoIndex]
             DispatchQueue.main.async {
-                self.setBackBlurPhoto(with: (URL(string: (photo.urls?.regular)!))!)
+                self.setBackBlurPhoto(with: (URL(string: (photo.urls?.small)!))!)
                 self.photographerLabel!.attributedText = self.convert(name: (photo.user?.name)!)
             }
         }
