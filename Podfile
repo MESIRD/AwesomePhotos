@@ -14,5 +14,7 @@ target 'AwesomePhotos' do
   pod 'SDWebImage', '~>3.8'
   
   pod 'SABlurImageView'
+  
+  pod 'MBProgressHUD', '~> 1.0.0'
 
 end

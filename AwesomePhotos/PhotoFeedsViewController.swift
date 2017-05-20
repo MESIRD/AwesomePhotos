@@ -12,6 +12,7 @@ import Alamofire
 import MJExtension
 import SDWebImage
 import SABlurImageView
+import MBProgressHUD
 
 class PhotoFeedsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIScrollViewDelegate {
     
@@ -27,6 +28,8 @@ class PhotoFeedsViewController: UIViewController, UICollectionViewDataSource, UI
     
     var feedPhotos: Array<APPhoto> = []
     var currentPhotoIndex: Int = 0
+    
+    var indicatorView: UIActivityIndicatorView?
     
     let kReuseIdFeedsCell = "FeedsCell"
 
@@ -64,6 +67,11 @@ class PhotoFeedsViewController: UIViewController, UICollectionViewDataSource, UI
         photographerLabel!.textAlignment = .right
         view.addSubview(photographerLabel!)
         
+        indicatorView = UIActivityIndicatorView(frame: CGRect(x: (ScreenWidth - 50) / 2, y: (ScreenHeight - 50) / 2, width: 50, height: 50))
+        indicatorView!.activityIndicatorViewStyle = .white
+        indicatorView!.startAnimating()
+        view.addSubview(indicatorView!)
+        
         let collectionLayout = UICollectionViewFlowLayout()
         collectionLayout.scrollDirection = .horizontal
         collectionLayout.itemSize = CGSize(width: ScreenWidth, height: ScreenHeight)
@@ -84,6 +92,7 @@ class PhotoFeedsViewController: UIViewController, UICollectionViewDataSource, UI
         
         editButton = UIButton(frame: CGRect(x: downloadButton!.frame.minX - 50 - 40, y: ScreenHeight - 50 - 40, width: 40, height: 40))
         editButton!.setImage(UIImage.init(named: "edit_button"), for: .normal)
+        editButton!.isEnabled = false
         editButton!.addTarget(self, action: #selector(self.editPhoto), for: .touchUpInside)
         view.addSubview(editButton!)
         
@@ -94,13 +103,15 @@ class PhotoFeedsViewController: UIViewController, UICollectionViewDataSource, UI
     }
     
     func refreshData() {
+        indicatorView!.startAnimating()
         let parameters: Parameters = ["client_id": "fb960eecf28eaa7e534b592cd49238327e5d976a7b5218c021605dcb4475b759"]
         Alamofire.request("https://api.unsplash.com/photos/", method: .get, parameters: parameters).responseJSON { (response) in
+            self.indicatorView!.stopAnimating()
             if response.result.isSuccess {
                 let photos: Array<APPhoto> = APPhoto.mj_objectArray(withKeyValuesArray: response.result.value!) as! Array<APPhoto>
                 self.feedPhotos = photos
                 if self.feedPhotos.count > 0 {
-                    self.setBackBlurPhoto(with: URL(string: (self.feedPhotos.first?.urls?.small)!)!)
+                    self.setBackBlurPhoto(with: URL(string: (self.feedPhotos.first?.urls?.regular)!)!)
                     self.photographerLabel!.attributedText = self.convert(name: (self.feedPhotos.first?.user?.name)!)
                 }
                 self.photoCollectionView?.reloadData()
@@ -135,7 +146,7 @@ class PhotoFeedsViewController: UIViewController, UICollectionViewDataSource, UI
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: APFeedsCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: kReuseIdFeedsCell, for: indexPath) as! APFeedsCollectionViewCell
-        cell.setPhoto(with:URL(string: (feedPhotos[indexPath.item].urls?.small)!)!)
+        cell.setPhoto(with:URL(string: (feedPhotos[indexPath.item].urls?.regular)!)!)
         return cell
     }
     
@@ -154,7 +165,7 @@ class PhotoFeedsViewController: UIViewController, UICollectionViewDataSource, UI
             currentPhotoIndex = index
             let photo = feedPhotos[currentPhotoIndex]
             DispatchQueue.main.async {
-                self.setBackBlurPhoto(with: (URL(string: (photo.urls?.small)!))!)
+                self.setBackBlurPhoto(with: (URL(string: (photo.urls?.regular)!))!)
                 self.photographerLabel!.attributedText = self.convert(name: (photo.user?.name)!)
             }
         }
