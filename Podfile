@@ -9,11 +9,11 @@ target 'AwesomePhotos' do
 
   pod 'Alamofire', '~> 4.4'
   
-  pod 'MJExtension'
+  pod 'MJExtension', '~> 3.0.13'
   
   pod 'SDWebImage', '~>3.8'
   
-  pod 'SABlurImageView'
+  pod 'SABlurImageView', '~> 3.0.1'
   
   pod 'MBProgressHUD', '~> 1.0.0'
 

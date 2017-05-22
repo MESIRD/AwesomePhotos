@@ -14,6 +14,7 @@ import SDWebImage
 import SABlurImageView
 import MBProgressHUD
 
+
 class PhotoFeedsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIScrollViewDelegate {
     
     var backBlurPhotoViews: Array<SABlurImageView> = []
@@ -60,7 +61,7 @@ class PhotoFeedsViewController: UIViewController, UICollectionViewDataSource, UI
         backBlurPhotoViews.append(backBlurPhotoViewB)
         
         backMaskView = UIView(frame: UIScreen.main.bounds)
-        backMaskView!.backgroundColor = UIColor.init(white: 0, alpha: 0.5)
+        backMaskView!.backgroundColor = UIColor.init(white: 0, alpha: 0.3)
         view.addSubview(backMaskView!)
         
         photographerLabel = UILabel(frame: CGRect(x: 15, y: 15, width: ScreenWidth - 30, height: 20))
@@ -104,7 +105,7 @@ class PhotoFeedsViewController: UIViewController, UICollectionViewDataSource, UI
     
     func refreshData() {
         indicatorView!.startAnimating()
-        let parameters: Parameters = ["client_id": "fb960eecf28eaa7e534b592cd49238327e5d976a7b5218c021605dcb4475b759"]
+        let parameters: Parameters = ["client_id": UnsplashClientId]
         Alamofire.request("https://api.unsplash.com/photos/", method: .get, parameters: parameters).responseJSON { (response) in
             self.indicatorView!.stopAnimating()
             if response.result.isSuccess {
@@ -112,7 +113,7 @@ class PhotoFeedsViewController: UIViewController, UICollectionViewDataSource, UI
                 self.feedPhotos = photos
                 if self.feedPhotos.count > 0 {
                     self.setBackBlurPhoto(with: URL(string: (self.feedPhotos.first?.urls?.regular)!)!)
-                    self.photographerLabel!.attributedText = self.convert(name: (self.feedPhotos.first?.user?.name)!)
+                    self.photographerLabel!.attributedText = self.convert((self.feedPhotos.first?.user?.name)!)
                 }
                 self.photoCollectionView?.reloadData()
             } else {
@@ -166,14 +167,16 @@ class PhotoFeedsViewController: UIViewController, UICollectionViewDataSource, UI
             let photo = feedPhotos[currentPhotoIndex]
             DispatchQueue.main.async {
                 self.setBackBlurPhoto(with: (URL(string: (photo.urls?.regular)!))!)
-                self.photographerLabel!.attributedText = self.convert(name: (photo.user?.name)!)
+                self.photographerLabel!.attributedText = self.convert((photo.user?.name)!)
             }
         }
     }
     
     func setBackBlurPhoto(with url: URL) {
-        backBlurPhotoViews[1 - currentBackPhotoIndex].sd_setImage(with: url)
-        backBlurPhotoViews[1 - currentBackPhotoIndex].addBlurEffect(50)
+        let backView = backBlurPhotoViews[1 - currentBackPhotoIndex]
+        backView.sd_setImage(with: url) { (image, error, cacheType, url) in
+            backView.addBlurEffect(50)
+        }
         UIView.animate(withDuration: 0.3, animations: {
             self.backBlurPhotoViews[self.currentBackPhotoIndex].alpha = 0
             self.backBlurPhotoViews[1 - self.currentBackPhotoIndex].alpha = 1
@@ -181,7 +184,7 @@ class PhotoFeedsViewController: UIViewController, UICollectionViewDataSource, UI
         currentBackPhotoIndex = 1 - currentBackPhotoIndex
     }
     
-    func convert(name: String) -> NSAttributedString {
+    func convert(_ name: String) -> NSAttributedString {
         let attributedText = NSMutableAttributedString(string: String.init(format: "powered by %@", name), attributes: [NSForegroundColorAttributeName:UIColor.white, NSFontAttributeName:UIFont.systemFont(ofSize: 14, weight: UIFontWeightLight)])
         attributedText.addAttribute(NSFontAttributeName, value: UIFont.boldSystemFont(ofSize: 14), range: NSMakeRange(11, name.characters.count))
         return attributedText

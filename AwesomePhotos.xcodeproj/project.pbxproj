@@ -22,6 +22,15 @@
 		D79F920E1EC3705C000DD79F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D79F920D1EC3705C000DD79F /* Assets.xcassets */; };
 		D79F92111EC3705C000DD79F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D79F920F1EC3705C000DD79F /* LaunchScreen.storyboard */; };
 		D7CEBA0C1ECB5F1200F4A009 /* APFeedsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CEBA0B1ECB5F1200F4A009 /* APFeedsCollectionViewCell.swift */; };
+		F564C0361ED3098500894748 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F564C0311ED3098500894748 /* libWeChatSDK.a */; };
+		F564C0371ED3098500894748 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = F564C0321ED3098500894748 /* README.txt */; };
+		F564C0391ED30A4100894748 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F564C0381ED30A4100894748 /* libc++.tbd */; };
+		F564C03B1ED30A4D00894748 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F564C03A1ED30A4D00894748 /* libsqlite3.tbd */; };
+		F564C03D1ED30A5500894748 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F564C03C1ED30A5500894748 /* libz.tbd */; };
+		F564C03F1ED30A5B00894748 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F564C03E1ED30A5B00894748 /* SystemConfiguration.framework */; };
+		F564C0421ED30F9800894748 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F564C0411ED30F9800894748 /* CoreTelephony.framework */; };
+		F564C0441ED30F9F00894748 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F564C0431ED30F9F00894748 /* Security.framework */; };
+		F564C0461ED30FAC00894748 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F564C0451ED30FAC00894748 /* CFNetwork.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +53,19 @@
 		D79F92101EC3705C000DD79F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D79F92121EC3705C000DD79F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D7CEBA0B1ECB5F1200F4A009 /* APFeedsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APFeedsCollectionViewCell.swift; sourceTree = "<group>"; };
+		F564C0311ED3098500894748 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		F564C0321ED3098500894748 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		F564C0331ED3098500894748 /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
+		F564C0341ED3098500894748 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		F564C0351ED3098500894748 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		F564C0381ED30A4100894748 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		F564C03A1ED30A4D00894748 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		F564C03C1ED30A5500894748 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		F564C03E1ED30A5B00894748 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		F564C0401ED30AA900894748 /* Bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bridge.h; sourceTree = "<group>"; };
+		F564C0411ED30F9800894748 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		F564C0431ED30F9F00894748 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		F564C0451ED30FAC00894748 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +73,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F564C0461ED30FAC00894748 /* CFNetwork.framework in Frameworks */,
+				F564C0441ED30F9F00894748 /* Security.framework in Frameworks */,
+				F564C0421ED30F9800894748 /* CoreTelephony.framework in Frameworks */,
+				F564C03F1ED30A5B00894748 /* SystemConfiguration.framework in Frameworks */,
+				F564C03D1ED30A5500894748 /* libz.tbd in Frameworks */,
+				F564C03B1ED30A4D00894748 /* libsqlite3.tbd in Frameworks */,
+				F564C0391ED30A4100894748 /* libc++.tbd in Frameworks */,
+				F564C0361ED3098500894748 /* libWeChatSDK.a in Frameworks */,
 				8AC3A500BE50470D0A87361E /* Pods_AwesomePhotos.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -61,6 +91,13 @@
 		69379DAA2FFDF5919756129E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F564C0451ED30FAC00894748 /* CFNetwork.framework */,
+				F564C0431ED30F9F00894748 /* Security.framework */,
+				F564C0411ED30F9800894748 /* CoreTelephony.framework */,
+				F564C03E1ED30A5B00894748 /* SystemConfiguration.framework */,
+				F564C03C1ED30A5500894748 /* libz.tbd */,
+				F564C03A1ED30A4D00894748 /* libsqlite3.tbd */,
+				F564C0381ED30A4100894748 /* libc++.tbd */,
 				13EDCD5B2EBDCA295D1E0BE0 /* Pods_AwesomePhotos.framework */,
 			);
 			name = Frameworks;
@@ -101,6 +138,7 @@
 		D79F92051EC3705C000DD79F /* AwesomePhotos */ = {
 			isa = PBXGroup;
 			children = (
+				F564C02F1ED3097300894748 /* Library */,
 				D7CEBA0A1ECB5E6200F4A009 /* View */,
 				D7CEBA091ECB5E5800F4A009 /* Controller */,
 				D79DBFFF1ECA182B0025763E /* Model */,
@@ -111,6 +149,7 @@
 				D79F920F1EC3705C000DD79F /* LaunchScreen.storyboard */,
 				D79F92121EC3705C000DD79F /* Info.plist */,
 				D79271C81EC806AB00FF2BAD /* PrefixHeader.swift */,
+				F564C0401ED30AA900894748 /* Bridge.h */,
 			);
 			path = AwesomePhotos;
 			sourceTree = "<group>";
@@ -130,6 +169,26 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		F564C02F1ED3097300894748 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				F564C0301ED3098500894748 /* OpenSDK1.7.7 */,
+			);
+			name = Library;
+			sourceTree = "<group>";
+		};
+		F564C0301ED3098500894748 /* OpenSDK1.7.7 */ = {
+			isa = PBXGroup;
+			children = (
+				F564C0311ED3098500894748 /* libWeChatSDK.a */,
+				F564C0321ED3098500894748 /* README.txt */,
+				F564C0331ED3098500894748 /* WechatAuthSDK.h */,
+				F564C0341ED3098500894748 /* WXApi.h */,
+				F564C0351ED3098500894748 /* WXApiObject.h */,
+			);
+			path = OpenSDK1.7.7;
+			sourceTree = "<group>";
+		};
 		FB6D5EB3E6A9900B2027A751 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,7 +205,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D79F92151EC3705C000DD79F /* Build configuration list for PBXNativeTarget "AwesomePhotos" */;
 			buildPhases = (
-				44AC0EA64D2E82D763CEDF3C /* 📦 Check Pods Manifest.lock */,
+				44AC0EA64D2E82D763CEDF3C /* [CP] Check Pods Manifest.lock */,
 				A52E89559025C4739882F69A /* [CP] Check Pods Manifest.lock */,
 				D79F91FF1EC3705B000DD79F /* Sources */,
 				D79F92001EC3705B000DD79F /* Frameworks */,
@@ -208,6 +267,7 @@
 			files = (
 				D79F92111EC3705C000DD79F /* LaunchScreen.storyboard in Resources */,
 				D79F920E1EC3705C000DD79F /* Assets.xcassets in Resources */,
+				F564C0371ED3098500894748 /* README.txt in Resources */,
 				D79F920C1EC3705C000DD79F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -230,19 +290,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AwesomePhotos/Pods-AwesomePhotos-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		44AC0EA64D2E82D763CEDF3C /* 📦 Check Pods Manifest.lock */ = {
+		44AC0EA64D2E82D763CEDF3C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		487A59ADC99346419569F6B2 /* 📦 Embed Pods Frameworks */ = {
@@ -451,8 +511,28 @@
 				INFOPLIST_FILE = AwesomePhotos/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AwesomePhotos/OpenSDK1.7.7",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"MBProgressHUD\"",
+					"-framework",
+					"\"MJExtension\"",
+					"-framework",
+					"\"SABlurImageView\"",
+					"-framework",
+					"\"SDWebImage\"",
+					"-Objc",
+					"-all_load",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.mesird.AwesomePhotos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = AwesomePhotos/Bridge.h;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -467,8 +547,28 @@
 				INFOPLIST_FILE = AwesomePhotos/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AwesomePhotos/OpenSDK1.7.7",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"MBProgressHUD\"",
+					"-framework",
+					"\"MJExtension\"",
+					"-framework",
+					"\"SABlurImageView\"",
+					"-framework",
+					"\"SDWebImage\"",
+					"-Objc",
+					"-all_load",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.mesird.AwesomePhotos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = AwesomePhotos/Bridge.h;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

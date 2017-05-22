@@ -7,10 +7,11 @@
 //
 
 import UIKit
+
 import SDWebImage
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, WXApiDelegate {
 
     var window: UIWindow?
 
@@ -18,12 +19,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        let rootViewController = PhotoFeedsViewController()
-        window = UIWindow.init(frame: UIScreen.main.bounds)
-        window?.rootViewController = rootViewController
-        
+        #if DEBUG
         SDImageCache.shared().clearMemory()
         SDImageCache.shared().clearDisk()
+        #endif
+        
+        // 注册微信
+        self.registerWeChat()
+        
+        // 初始化 window
+        self.initializeWindow()
         
         return true
     }
@@ -49,7 +54,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+    func application(_ application: UIApplication, handleOpen url: URL) -> Bool {
+        return WXApi.handleOpen(url, delegate: self)
+    }
+    
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        return WXApi.handleOpen(url, delegate: self)
+    }
+    
+    //MARK: WXApiDelegate
+    
+    func onReq(_ req: BaseReq!) {
+        
+    }
+    
+    func onResp(_ resp: BaseResp!) {
+        
+    }
 
-
+    //MARK: Private Methods
+    
+    func initializeWindow() {
+        let rootViewController = PhotoFeedsViewController()
+        window = UIWindow.init(frame: UIScreen.main.bounds)
+        window?.rootViewController = rootViewController
+    }
+    
+    func registerWeChat() {
+        WXApi.registerApp(WXAppId)
+    }
 }
 

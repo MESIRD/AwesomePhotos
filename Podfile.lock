@@ -10,8 +10,8 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 4.4)
   - MBProgressHUD (~> 1.0.0)
-  - MJExtension
-  - SABlurImageView
+  - MJExtension (~> 3.0.13)
+  - SABlurImageView (~> 3.0.1)
   - SDWebImage (~> 3.8)
 
 SPEC CHECKSUMS:
@@ -21,6 +21,6 @@ SPEC CHECKSUMS:
   SABlurImageView: bd0940330d0e8571379a495623e57c436659a202
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
 
-PODFILE CHECKSUM: 81713b99214cf936ca7b6f4c1f5c75607d554f2a
+PODFILE CHECKSUM: f1bfd6a6b69db08328af0bd2cdd6f5a7c9245077
 
-COCOAPODS: 1.0.0
+COCOAPODS: 1.2.0
